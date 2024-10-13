@@ -1,0 +1,27 @@
+{% extends 'bibliothecaire/base.html' %}
+
+{% block title %}Liste des Membres{% endblock %}
+
+{% block content %}
+<h1>Liste des Membres</h1>
+<table>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Bloqué</th>
+        <th>Actions</th>
+    </tr>
+    {% for membre in membres %}
+    <tr>
+        <td>{{ membre.nom }}</td>
+        <td>{{ membre.prenom }}</td>
+        <td>{{ membre.email }}</td>
+        <td>{{ membre.bloque|yesno:"Oui,Non" }}</td>
+        <td>
+            <a href="{% url 'bibliothecaire:modifier_membre' membre.membre_id %}">Modifier</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

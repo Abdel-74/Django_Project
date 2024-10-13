@@ -1,0 +1,14 @@
+{% extends 'bibliothecaire/base.html' %}
+
+{% block title %}Créer un emprunt{% endblock %}
+
+{% block content %}
+    <h1>Créer un emprunt</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.non_field_errors }} <!-- Afficher les erreurs -->
+        {{ form.as_p }}
+        <button type="submit">Créer l'emprunt</button>
+    </form>
+    <a href="{% url 'bibliothecaire:liste_emprunt' %}">Retour à la liste des emprunts</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'bibliothecaire/base.html' %}
+
+{% block title %}Modifier Membre{% endblock %}
+
+{% block content %}
+<h1>Modifier le Membre {{ membre.nom }} {{ membre.prenom }}</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enregistrer les modifications</button>
+</form>
+
+<a href="{% url 'bibliothecaire:liste_membres' %}">Annuler</a>
+{% endblock %}

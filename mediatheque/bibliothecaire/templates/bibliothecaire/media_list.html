@@ -1,0 +1,23 @@
+{% extends 'bibliothecaire/base.html' %}
+
+{% block title %}Liste des Médias{% endblock %}
+
+{% block content %}
+<h1>Liste des Médias</h1>
+<table>
+    <tr>
+        <th>Nom</th>
+        <th>Auteur</th>
+        <th>Type</th>
+        <th>Disponible</th>
+    </tr>
+    {% for media in medias %}
+    <tr>
+        <td>{{ media.titre }}</td>
+        <td>{{ media.auteur_realisateur }}</td>
+        <td>{{ media.type_media }}</td>
+        <td>{{ media.disponible|yesno:"Oui,Non" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

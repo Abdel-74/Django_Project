@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bibliothèque - Administration{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'bibliothecaire:liste_membres' %}">Liste des membres</a></li>
+                <li><a href="{% url 'bibliothecaire:liste_medias' %}">Liste des médias</a></li>
+                <li><a href="{% url 'bibliothecaire:ajouter_media' %}">Ajouter un média</a></li>
+                <li><a href="{% url 'bibliothecaire:ajouter_membre' %}">Ajouter un membre</a></li>
+                <li><a href="{% url 'bibliothecaire:liste_emprunt' %}">Les emprunts</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Médiathèque - Administration</p>
+    </footer>
+</body>
+</html>

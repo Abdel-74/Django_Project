@@ -1,0 +1,15 @@
+{% extends 'bibliothecaire/base.html' %}
+
+{% block title %}Ajouter un Média{% endblock %}
+
+{% block content %}
+    <h1>Ajouter un Média</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <a href="{% url 'bibliothecaire:liste_medias' %}">Retour à la liste des Médias</a>
+{% endblock %}

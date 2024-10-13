@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% block content %}
+    <h1>Liste des Médias</h1>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Type</th>
+            <th>Disponible</th>
+        </tr>
+        {% for media in medias %}
+        <tr>
+            <td>{{ media.titre }}</td>
+            <td>{{ media.type_media }}</td>
+            <td>{{ media.disponible|yesno:"Oui,Non" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock %}
+
+</body>
+</html>

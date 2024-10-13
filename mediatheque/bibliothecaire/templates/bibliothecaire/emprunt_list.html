@@ -1,0 +1,32 @@
+{% extends 'bibliothecaire/base.html' %}
+
+{% block title %}Liste des Emprunts{% endblock %}
+
+{% block content %}
+    <h1>Liste des emprunts</h1>
+    <table>
+        <tr>
+            <th>Membre</th>
+            <th>Média</th>
+            <th>Date d'emprunt</th>
+            <th>Date de retour</th>
+            <th>Actions</th>
+        </tr>
+        {% for emprunt in emprunts %}
+        <tr>
+            <td>{{ emprunt.membre }}</td>
+            <td>{{ emprunt.media }}</td>
+            <td>{{ emprunt.date_emprunt }}</td>
+            <td>{{ emprunt.date_retour|default:"En cours" }}</td>
+            <td>
+                {% if emprunt.date_retour is None %}
+                <a href="{% url 'bibliothecaire:retourner_emprunt' emprunt.membre.id emprunt.media.id %}">Retourner</a>
+                {% else %}
+                Rendu
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'bibliothecaire:creer_emprunt' %}">Créer un nouvel emprunt</a>
+{% endblock %}

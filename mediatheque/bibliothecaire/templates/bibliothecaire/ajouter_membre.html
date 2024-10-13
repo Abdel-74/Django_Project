@@ -1,0 +1,15 @@
+{% extends 'bibliothecaire/base.html' %}
+
+{% block title %}Ajouter un Membre{% endblock %}
+
+{% block content %}
+<h1>Ajouter un Membre</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Affiche les champs du formulaire de manière simple -->
+    <button type="submit">Ajouter</button>
+</form>
+
+<a href="{% url 'bibliothecaire:liste_membres' %}">Retour à la liste des membres</a>
+{% endblock %}
