@@ -4,6 +4,15 @@
     <title>Accueil</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'bibliothecaire:liste_membres' %}">Bibliothecaire</a></li>
+                <li><a href="{% url 'membre:liste_medias_membre' %}">Membre</a></li>
+            </ul>
+
+        </nav>
+    </header>
     <h1>Bienvenue dans la médiathèque</h1>
     <p>Ceci est la page d'accueil de la médiathèque "Notre livre, notre média".</p>
 </body>
